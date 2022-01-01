@@ -1,6 +1,6 @@
 {
-  "name": "simple-login",
-  "version": "0.0.0",
+  "name": "simple-login-wl",
+  "version": "1.0.0",
   "main": "src/index.ts",
   "repository": "https://github.com/Williancc1557/login-lib",
   "author": "willian cavalcanti coelho",

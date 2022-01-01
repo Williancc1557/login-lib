@@ -3,30 +3,32 @@ import { getUserFunction } from "./lib/get-user";
 import { createTokenFunction } from "./lib/create-token";
 import { checkTokenFunction } from "./lib/check-token";
 import { deleteUserFunction } from "./lib/delete-user";
+import { CheckCredentialsType, RegisterType } from "./types/types";
+
 
 class SimpleLogin {
-    public async register(email: string, password: string, domain: string, domainkey: string): Promise<object> {
+    public register = async ({ email, password, domain, domainkey }: RegisterType): Promise<object> => {
         const postUserRequest = await loginFunction(email, password, domain, domainkey);
         return postUserRequest;
-    }
+    };
 
-    public async getUser(email: string, domain: string, domainkey: string) {
-        const getUserRequest = getUserFunction(email, domain, domainkey);
+    public getUser = async ({ email, domain, domainkey }: CheckCredentialsType): Promise<object> => {
+        const getUserRequest = await getUserFunction(email, domain, domainkey);
         return getUserRequest;
-    }
+    };
 
-    public async createToken(email: string) {
+    public async createToken(email: string): Promise<object> {
         const createTokenRequest = await createTokenFunction(email);
         return createTokenRequest;
     }
 
-    public async checkToken(token: string) {
+    public async checkToken(token: string): Promise<object> {
         const checkTokenRequest = await checkTokenFunction(token);
         return checkTokenRequest;
     }
 
-    public async deleteUser(email: string, domain: string, domainkey: string) {
-        const deleteUserRequest = deleteUserFunction(email, domain, domainkey);
+    public async deleteUser({ email, domain, domainkey }: CheckCredentialsType): Promise<object> {
+        const deleteUserRequest = await deleteUserFunction(email, domain, domainkey);
         return deleteUserRequest;
     }
 }

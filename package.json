@@ -1,8 +1,8 @@
 {
   "name": "simple-login-wl",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "types": "lib",
-  "main": "src/index.ts",
+  "main": "lib/index.js",
   "repository": "https://github.com/Williancc1557/login-lib",
   "author": "willian cavalcanti coelho",
   "license": "MIT",

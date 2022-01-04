@@ -1,9 +1,10 @@
-import { loginFunction } from "./lib-source/register";
-import { getUserFunction } from "./lib-source/get-user";
-import { createTokenFunction } from "./lib-source/create-token";
-import { checkTokenFunction } from "./lib-source/check-token";
-import { deleteUserFunction } from "./lib-source/delete-user";
-import { CheckCredentialsType, RegisterType } from "./types/types";
+import { loginFunction } from "./functions/register";
+import { getUserFunction } from "./functions/get-user";
+import { createTokenFunction } from "./functions/create-token";
+import { checkTokenFunction } from "./functions/check-token";
+import { deleteUserFunction } from "./functions/delete-user";
+import { CheckCredentialsType, RegisterType, UpdateUser } from "./types/types";
+import { updateUserFunction } from "./functions/update-user";
 
 class SimpleLogin {
     public register = async ({ email, password, domain, domainkey }: RegisterType) => {
@@ -24,6 +25,18 @@ class SimpleLogin {
     public checkToken = async (token: string) => {
         const checkTokenRequest = await checkTokenFunction(token);
         return checkTokenRequest;
+    };
+
+    public updateUser = async ({ email, domain, domainkey, newemail, newpassword }: UpdateUser) => {
+        const updateUserRequest = await updateUserFunction({
+            email: email,
+            domain: domain,
+            domainkey: domainkey,
+            newemail: newemail,
+            newpassword: newpassword,
+        });
+
+        return updateUserRequest;
     };
 
     public deleteUser = async ({ email, domain, domainkey }: CheckCredentialsType) => {

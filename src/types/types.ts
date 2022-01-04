@@ -1,7 +1,4 @@
-export interface RegisterType {
-    domainkey: string;
-    domain: string;
-    email: string;
+interface RegisterPassword {
     password: string;
 }
 
@@ -10,3 +7,12 @@ export interface CheckCredentialsType {
     domain: string;
     email: string;
 }
+
+interface Update {
+    newemail?: string;
+    newpassword?: string;
+}
+
+export type UpdateUser = CheckCredentialsType & Update;
+
+export type RegisterType = CheckCredentialsType & RegisterPassword;

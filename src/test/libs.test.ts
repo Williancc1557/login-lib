@@ -1,8 +1,8 @@
-import { checkTokenFunction } from "../lib-source/check-token";
-import { createTokenFunction } from "../lib-source/create-token";
-import { deleteUserFunction } from "../lib-source/delete-user";
-import { getUserFunction } from "../lib-source/get-user";
-import { loginFunction } from "../lib-source/register";
+import { checkTokenFunction } from "../functions/check-token";
+import { createTokenFunction } from "../functions/create-token";
+import { deleteUserFunction } from "../functions/delete-user";
+import { getUserFunction } from "../functions/get-user";
+import { loginFunction } from "../functions/register";
 
 describe("testing libs", () => {
     describe("register", () => {

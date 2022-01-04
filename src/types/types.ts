@@ -3,14 +3,14 @@ interface RegisterPassword {
 }
 
 export interface CheckCredentialsType {
-    domainkey: string;
+    domainKey: string;
     domain: string;
     email: string;
 }
 
 interface Update {
-    newemail?: string;
-    newpassword?: string;
+    newEmail?: string;
+    newPassword?: string;
 }
 
 export type UpdateUser = CheckCredentialsType & Update;

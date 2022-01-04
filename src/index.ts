@@ -7,13 +7,13 @@ import { CheckCredentialsType, RegisterType, UpdateUser } from "./types/types";
 import { updateUserFunction } from "./functions/update-user";
 
 class SimpleLogin {
-    public register = async ({ email, password, domain, domainkey }: RegisterType) => {
-        const postUserRequest = await loginFunction(email, password, domain, domainkey);
+    public register = async ({ email, password, domain, domainKey }: RegisterType) => {
+        const postUserRequest = await loginFunction(email, password, domain, domainKey);
         return postUserRequest;
     };
 
-    public getUser = async ({ email, domain, domainkey }: CheckCredentialsType) => {
-        const getUserRequest = await getUserFunction(email, domain, domainkey);
+    public getUser = async ({ email, domain, domainKey }: CheckCredentialsType) => {
+        const getUserRequest = await getUserFunction(email, domain, domainKey);
         return getUserRequest;
     };
 
@@ -27,20 +27,20 @@ class SimpleLogin {
         return checkTokenRequest;
     };
 
-    public updateUser = async ({ email, domain, domainkey, newemail, newpassword }: UpdateUser) => {
+    public updateUser = async ({ email, domain, domainKey, newEmail, newPassword }: UpdateUser) => {
         const updateUserRequest = await updateUserFunction({
             email: email,
             domain: domain,
-            domainkey: domainkey,
-            newemail: newemail,
-            newpassword: newpassword,
+            domainKey: domainKey,
+            newEmail: newEmail,
+            newPassword: newPassword,
         });
 
         return updateUserRequest;
     };
 
-    public deleteUser = async ({ email, domain, domainkey }: CheckCredentialsType) => {
-        const deleteUserRequest = await deleteUserFunction(email, domain, domainkey);
+    public deleteUser = async ({ email, domain, domainKey }: CheckCredentialsType) => {
+        const deleteUserRequest = await deleteUserFunction(email, domain, domainKey);
         return deleteUserRequest;
     };
 }
